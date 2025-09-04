@@ -22,4 +22,8 @@ function sendMail(e) {
         });
 }
 
-document.getElementById('requestForm').addEventListener('submit', sendMail);
+const form = document.getElementById('requestForm');
+if (!form.hasAttribute('data-listener')) {
+    form.addEventListener('submit', sendMail);
+    form.setAttribute('data-listener', 'true');
+}
